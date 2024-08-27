@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.custom-checkbox {
+  @apply appearance-none w-4 h-4 border-2 border-secondary rounded-full cursor-pointer;
+}
+
+/* Style for the checkbox when it's checked */
+.custom-checkbox:checked {
+  @apply bg-burbleC border-none;
+}
+
+.custom-checkbox:checked::before {
+  content: "";
+  @apply block w-full h-full;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22none%22 viewBox=%220 0 24 24%22 stroke=%22%23F2F2F2%22%3E%3Cpath stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222%22 d=%22M5 13l4 4L19 7%22 /%3E%3C/svg%3E");
+  background-size: 80%; /* Adjust the size of the checkmark */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Add this to your CSS file */
+.task-swiping {
+  animation: swipe-out 0.5s ease forwards; /* Animation duration must match setTimeout duration */
+}
+
+@keyframes swipe-out {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
