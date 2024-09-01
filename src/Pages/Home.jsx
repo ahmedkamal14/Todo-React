@@ -34,7 +34,7 @@ const Home = () => {
       text,
       isDone: false,
     };
-    setTasks([...tasks, newTask]);
+    setTasks([newTask, ...tasks]);
     setTaskCount(taskCount + 1);
     setText("");
   };
@@ -46,17 +46,21 @@ const Home = () => {
   };
 
   return (
-    <div className="xl:px-28 px-8 sm:px-12 bg-primary min-h-[calc(100vh-200px)]">
+    <div className="xl:px-28 px-8 sm:px-12 bg-primary min-h-[calc(100vh-200px)] max-h-[100vh]">
       <div className="container max-w-screen-lg m-auto flex flex-col gap-16">
         <div className="input w-full -mt-[28.8px] flex flex-col sm:flex-row gap-6 items-center">
-          <input
-            type="text"
-            placeholder={`Write your note and press "Enter" ...`}
-            className="bg-taskBg text-white px-6 py-4 border-blackC border-[1.5px] focus:outline-none w-full sm:w-[80%] lg:w-[90%] rounded-[8px]"
-            value={text}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-          />
+          <div className="relative w-full sm:w-[80%] lg:w-[90%]">
+            <input
+              type="text"
+              placeholder={`Write your note and press "Enter" ...`}
+              className="bg-taskBg text-white px-6 py-4 border-blackC border-[1.5px] focus:outline-none rounded-[8px] w-full"
+              value={text}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+            />
+            <div className="hint-box">Date Format YYYY-MM-DD or YYYY/MM/DD</div>
+          </div>
+
           <button
             className="bg-secondary hover:bg-secondaryL transition-all duration-300 px-4 py-4 text-whiteG sm:w-[20%] lg:w-[10%] flex justify-center items-center gap-2 text-[14px] font-bold rounded-[8px]"
             onClick={handleAddTask}

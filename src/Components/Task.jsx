@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import PropTypes from "prop-types";
+import TextF from "./TextF";
 
 const Task = ({ setTaskCount, setDoneCount, tasks, setTasks }) => {
   const [animatingId, setAnimatingId] = useState(null); // State for animation
@@ -32,12 +33,12 @@ const Task = ({ setTaskCount, setDoneCount, tasks, setTasks }) => {
 
   return (
     <div className="container max-w-screen-lg mx-auto mt-8">
-      <div className="tasks flex flex-col gap-4">
+      <div className="tasks flex flex-col gap-4 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-375px)] mb-4">
         {tasks.map((task) => (
           <div
             key={task.id}
             className={`task flex justify-between items-center py-4 px-4 sm:py-5 sm:px-6 rounded-lg bg-taskBg border gap-4 transition-transform duration-300 ${
-              task.isDone ? "border-none" : "border-taskBorder"
+              task.isDone ? "border-taskBg" : "border-taskBorder"
             } ${animatingId === task.id ? "task-swiping" : ""}`}
           >
             <button className="status-check flex items-center">
@@ -46,6 +47,7 @@ const Task = ({ setTaskCount, setDoneCount, tasks, setTasks }) => {
                 className="custom-checkbox"
                 onChange={handleDoneChange}
                 id={task.id}
+                checked={task.isDone}
               />
             </button>
 
@@ -57,7 +59,7 @@ const Task = ({ setTaskCount, setDoneCount, tasks, setTasks }) => {
                     : "text-whiteG"
                 }`}
               >
-                {task.text}
+                <TextF text={task.text} />
               </p>
             </div>
 

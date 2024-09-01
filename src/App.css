@@ -37,3 +37,39 @@ body {
     opacity: 0;
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333333;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4ea8de;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8284fa;
+}
+
+.hint-box {
+  position: absolute;
+  top: -2.5rem; /* Adjust this value to position the hint box */
+  left: 0;
+  background-color: #1e6f9f; /* Replace with your bg-gray-700 color */
+  color: #f2f2f2; /* Replace with your text-white color */
+  font-size: 0.875rem; /* Replace with your text-sm */
+  padding: 0.25rem 0.5rem; /* Replace with your px-2 py-1 */
+  border-radius: 0.375rem; /* Replace with your rounded-md */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.3s ease;
+}
+
+.relative:hover .hint-box {
+  opacity: 1;
+  visibility: visible;
+}
