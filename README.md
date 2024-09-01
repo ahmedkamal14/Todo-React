@@ -8,8 +8,10 @@ This application is a To-Do list manager built with React. It offers a clean and
 
 - **Intuitive UI:** Provides a user-friendly interface with smooth animations and transitions for a pleasant experience.
 - **Task Management:** Allows users to add, delete, and mark tasks as done effortlessly.
+- **URL and Date Recognition:** Automatically detects URLs and dates in tasks, converting URLs into clickable links and offering to create Google Calendar events for recognized dates.
 - **Responsive Design:** Ensures that the application is fully responsive and accessible on various devices and screen sizes.
 - **Interactive Elements:** Features animations for interactions like adding, completing, and removing tasks.
+
 
 ## Technologies Used
 
